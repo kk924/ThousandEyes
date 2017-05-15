@@ -50,8 +50,8 @@ public class FollowersController {
      * <p>
      * Method inserts a record indicating that the current user is
      * following the other user. The other user is identified by its ID in the Person Table
-     * This ID is retrieved from the header with the name "PersonID"
-     * Add "PersonID" Header to the GET Request with the value
+     * This ID is retrieved from the parameters with the name "person_id"
+     * Add "person_id" Parameter to the GET Request with the value
      *
      * @param request : The HTTP Request
      */
@@ -66,8 +66,8 @@ public class FollowersController {
      * <p>
      * Method deletes a record indicating that the current user has unfollowed
      * the other user. The other user is identified by its ID in the Person Table
-     * This ID is retrieved from the header with the name "PersonID"
-     * Add "PersonID" Header to the GET Request with the value
+     * This ID is retrieved from the parameters with the name "person_id"
+     * Add "person_id" Parameter to the GET Request with the value
      *
      * @param request : The HTTP Request
      */
@@ -84,8 +84,8 @@ public class FollowersController {
      * <p>
      * Computes the number of hops between the current user and the target user
      * The target user is identified by its ID in the Person Table
-     * This ID is retrieved from the header with the name "PersonID"
-     * Add "PersonID" Header to the GET Request with the value
+     * This ID is retrieved from the parameters with the name "person_id"
+     * Add "person_id" Parameter to the GET Request with the value
      *
      * @param request : The HTTP Request
      * @return : The number of hops between the current user and target user

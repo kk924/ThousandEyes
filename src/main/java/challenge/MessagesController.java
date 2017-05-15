@@ -24,7 +24,7 @@ public class MessagesController {
      * Method which returns the current user's tweets, current user following's tweets
      * and filter them by a search value.
      * <p>
-     * Add "Search" Header to the GET Request with the search token value
+     * Add "Search" Parameter to the GET Request with the search token value
      *
      * @param request : The HTTP Request
      * @return : List of Tweets

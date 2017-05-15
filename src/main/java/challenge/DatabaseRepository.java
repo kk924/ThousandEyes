@@ -40,10 +40,10 @@ class DatabaseRepository {
      * 1) Associated with the current user's ID as per the authentication credentials.
      * 2) Associated with other users the current user is following
      * 3) Which contain messages which contain the search key as described in the
-     * "Search" Header in the HTTP GET Request
+     * "Search" Parameter in the HTTP GET Request
      *
      * @param userId          : The current user's ID as per the authentication credentials
-     * @param searchParameter : The search key as described in the "Search" Header in the HTTP GET Request
+     * @param searchParameter : The search key as described in the "Search" Parameter in the HTTP GET Request
      * @return : The list of Tweet objects which contains messages which satisfies the constraints
      */
     @Transactional
