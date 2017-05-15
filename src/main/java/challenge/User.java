@@ -1,26 +1,32 @@
 package challenge;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import customserializers.UserSerializer;
+
+import java.io.Serializable;
+
 /**
  * Person table equivalent
  */
-public class User {
+@JsonSerialize(using = UserSerializer.class)
+public class User implements Serializable {
 
     private Integer id;
     private String name;
 
-    protected Integer getId() {
+    public Integer getId() {
         return id;
     }
 
-    protected void setId(Integer id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    protected String getName() {
+    public String getName() {
         return name;
     }
 
-    protected void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 

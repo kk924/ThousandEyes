@@ -58,7 +58,7 @@ public class FollowersController {
     @RequestMapping(value = "/follow-user", method = RequestMethod.GET)
     public void addUserFollowing(HttpServletRequest request) {
         Integer userId = databaseRepository.getUserId(request);
-        databaseRepository.insertUserFollowing(userId, Integer.parseInt(request.getHeader("personId")));
+        databaseRepository.insertUserFollowing(userId, Integer.parseInt(request.getParameter("person_id")));
     }
 
     /**
@@ -75,7 +75,7 @@ public class FollowersController {
 
     public void removeUserFollowing(HttpServletRequest request) {
         Integer userId = databaseRepository.getUserId(request);
-        databaseRepository.deleteUserFollowing(userId, Integer.parseInt(request.getHeader("personId")));
+        databaseRepository.deleteUserFollowing(userId, Integer.parseInt(request.getParameter("person_id")));
     }
 
     /**
@@ -94,7 +94,7 @@ public class FollowersController {
     @RequestMapping(value = "/shortest-distance", method = RequestMethod.GET)
     public Integer shortestDistance(HttpServletRequest request) {
         Integer userId = databaseRepository.getUserId(request);
-        return databaseRepository.findShortestDistance(userId, Integer.parseInt(request.getHeader("personId")));
+        return databaseRepository.findShortestDistance(userId, Integer.parseInt(request.getParameter("person_id")));
     }
 
 }

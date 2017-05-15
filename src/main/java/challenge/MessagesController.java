@@ -32,6 +32,6 @@ public class MessagesController {
     @RequestMapping(value = "/get-tweets", method = RequestMethod.GET)
     public List<Tweet> getTweets(HttpServletRequest request) {
         Integer userId = databaseRepository.getUserId(request);
-        return databaseRepository.getUserMessages(userId, request.getHeader("Search"));
+        return databaseRepository.getUserMessages(userId, request.getParameter("search"));
     }
 }

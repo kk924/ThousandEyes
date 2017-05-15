@@ -1,35 +1,39 @@
 package challenge;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import customserializers.TweetSerializer;
+
 /**
  * Tweet table equivalent
  */
+@JsonSerialize(using = TweetSerializer.class)
 public class Tweet {
 
     private Integer id;
     private Integer person_id;
     private String content;
 
-    protected Integer getId() {
+    public Integer getId() {
         return id;
     }
 
-    protected void setId(Integer id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    protected Integer getPerson_id() {
+    public Integer getPerson_id() {
         return person_id;
     }
 
-    protected void setPerson_id(Integer person_id) {
+    public void setPerson_id(Integer person_id) {
         this.person_id = person_id;
     }
 
-    protected String getContent() {
+    public String getContent() {
         return content;
     }
 
-    protected void setContent(String content) {
+    public void setContent(String content) {
         this.content = content;
     }
 }

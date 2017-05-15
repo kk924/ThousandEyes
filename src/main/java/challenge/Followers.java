@@ -1,35 +1,39 @@
 package challenge;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import customserializers.FollowersSerializer;
+
 /**
  * Followers Table equivalent
  */
+@JsonSerialize(using = FollowersSerializer.class)
 public class Followers {
 
     private Integer id;
     private Integer person_id;
     private Integer follower_person_id;
 
-    protected Integer getId() {
+    public Integer getId() {
         return id;
     }
 
-    protected void setId(Integer id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    protected Integer getPerson_id() {
+    public Integer getPerson_id() {
         return person_id;
     }
 
-    protected void setPerson_id(Integer person_id) {
+    public void setPerson_id(Integer person_id) {
         this.person_id = person_id;
     }
 
-    protected Integer getFollower_person_id() {
+    public Integer getFollower_person_id() {
         return follower_person_id;
     }
 
-    protected void setFollower_person_id(Integer follower_person_id) {
+    public void setFollower_person_id(Integer follower_person_id) {
         this.follower_person_id = follower_person_id;
     }
 }
