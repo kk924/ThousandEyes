@@ -8,22 +8,23 @@ public class User {
     private Integer id;
     private String name;
 
-    public void setId(Integer id){
-        this.id = id;
-    }
-
-    public void setName(String name){
-        this.name = name;
-    }
-
-    public Integer getId() {
+    protected Integer getId() {
         return id;
     }
 
-    public String getName() {
+    protected void setId(Integer id) {
+        this.id = id;
+    }
+
+    protected String getName() {
         return name;
     }
 
+    protected void setName(String name) {
+        this.name = name;
+    }
 
 
 }
+
+

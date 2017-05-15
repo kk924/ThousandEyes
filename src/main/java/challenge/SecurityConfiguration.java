@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    DataSource dataSource;
+    private DataSource dataSource;
 
     @Autowired
     private challenge.AuthenticationEntryPoint authenticationEntryPoint;
@@ -41,6 +41,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.headers().frameOptions().disable();
     }
+
 
     /**
      * Method which performs the user authentication.

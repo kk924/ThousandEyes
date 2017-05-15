@@ -16,7 +16,7 @@ import java.util.*;
  * Accesses the database and executes queries as required by the Rest API Endpoints
  */
 @Repository
-public class DatabaseRepository {
+class DatabaseRepository {
 
     @Autowired
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
@@ -84,6 +84,7 @@ public class DatabaseRepository {
         return this.namedParameterJdbcTemplate.query(query, namedParameters, new UserRowMapper());
     }
 
+
     /**
      * Method which implements Feature 2
      * <p>
@@ -95,7 +96,7 @@ public class DatabaseRepository {
     @Transactional
     List<User> getUserFollowingList(Integer userId) {
         String query = "select p.* from person p, followers f where p.id = f.person_id and f.follower_person_id = :userId";
-        Map parametersMap = new HashMap();
+        Map<String, Integer> parametersMap = new HashMap();
         parametersMap.put("userId", userId);
         SqlParameterSource namedParameters = new MapSqlParameterSource(parametersMap);
         return this.namedParameterJdbcTemplate.query(query, namedParameters, new UserRowMapper());
@@ -112,7 +113,7 @@ public class DatabaseRepository {
      */
     @Transactional
     void insertUserFollowing(Integer followerPersonId, Integer personId) {
-        Map parametersMap = new HashMap();
+        Map<String, Integer> parametersMap = new HashMap();
         parametersMap.put("personId", personId);
         parametersMap.put("followerPersonId", followerPersonId);
         SqlParameterSource namedParameters = new MapSqlParameterSource(parametersMap);
@@ -137,7 +138,7 @@ public class DatabaseRepository {
     @Transactional
     void deleteUserFollowing(Integer followerPersonId, Integer personId) {
         String query = "Delete from followers where person_id = :personId and follower_person_id = :followerPersonId";
-        Map parametersMap = new HashMap();
+        Map<String, Integer> parametersMap = new HashMap();
         parametersMap.put("personId", personId);
         parametersMap.put("followerPersonId", followerPersonId);
         SqlParameterSource namedParameters = new MapSqlParameterSource(parametersMap);
@@ -167,7 +168,7 @@ public class DatabaseRepository {
     @Transactional
     Integer findShortestDistance(Integer source, Integer goal) {
         String query = "Select * from followers";
-        Map<Integer, Set<Integer>> graph = new HashMap<Integer, Set<Integer>>();
+        Map<Integer, Set<Integer>> graph = new HashMap<>();
         SqlParameterSource namedParameters = new MapSqlParameterSource();
 
         List<Map<String, Object>> followerRecords = this.namedParameterJdbcTemplate.queryForList(query, namedParameters);
@@ -199,7 +200,7 @@ public class DatabaseRepository {
      * Returns a positive number which indicates the number of hops if a path exists
      * Returns -1 if no path exists between source and goal
      */
-    Integer BFS(Map<Integer, Set<Integer>> graph, int source, int goal) {
+    private Integer BFS(Map<Integer, Set<Integer>> graph, int source, int goal) {
         Set<Integer> visited = new HashSet<>();
         Queue<Integer> queue = new LinkedList<>();
         Integer distance = -1;
