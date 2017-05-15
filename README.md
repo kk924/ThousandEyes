@@ -19,10 +19,17 @@ http://localhost:8080/get-followers
 
 Feature 3:
 http://localhost:8080/follow-user
-Header Name: personId
+Parameter Name: person_id
+Value: The ID of the person you want to follow
 
 Feature 4:
 http://localhost:8080/unfollow-user
 
+Parameter Name: person_id
+Value: The ID of the person you want to unfollow
+
 Extra Feature 1:
 http://localhost:8080/shortest-distance
+
+Parameter Name: person_id
+Value: The ID of the target person for which you want to find the distance
